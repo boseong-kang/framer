@@ -1,0 +1,18 @@
+import { Override } from "framer"
+export function shareText(): Override {
+return {
+onClick: () => {
+if (navigator.share) {
+navigator.share({
+title: document.title,
+text: "Check out this page!",
+url: "https://boseongkang.dev", // 공유할 사이트 URL
+})
+.catch((error) => console.error("Sharing failed:", error))
+} else {
+alert("Sharing is not supported on this device.")
+}
+},
+cursor: "pointer", // 커서 모양 변경 (클릭 가능 표시)
+}
+}
